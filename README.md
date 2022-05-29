@@ -26,6 +26,26 @@ adesso non ritorna alcuna transazione per il conto di prova per qualsivoglia ran
  implementato un metodo di test salvare alcune transazioni riempite a codice.
  
  
+ Per testare da Postman:
+ 1) LetturaSaldo : GET http://localhost:8080/accounts/letturaSaldo/14537780
+ 2) LetturaTransazioni:GET  http://localhost:8080/accounts/listaTransazioni/14537780?fromAccountingDate=2019-01-01&toAccountingDate=2019-12-31
+ 3) Bonifico: POST http://localhost:8080/accounts/bonifico/14537780 e come body passare:
+ {
+	"executionDate": "2022-05-28",
+	"description": "Pagamento bolletta",
+	"amount": 1000.0,
+	"currency": "EUR",
+	"creditor": {
+		"name": null,
+		"account": {
+			"accountCode": "IT23A0336844430152923804669"
+		}
+	}
+}
+
+4) Save Transazioni: http://localhost:8080/accounts/transazioni/14537780/save
+ 
+ 
  
  
 
